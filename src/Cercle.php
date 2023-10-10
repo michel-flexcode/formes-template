@@ -8,12 +8,13 @@ class Cercle extends Forme
     // typé de la classe point
     private Point $point;
 
-    public function __construct($rayon, $point, $color = "#000000")
+    public function __construct(Point $point, float $rayon, string $color = "#000000")
     {
         $this->rayon = $rayon;
         $this->point = $point;
         parent::__construct($color);
     }
+
 
     public function getRayon(): float
     { // Assuming rayon is a float

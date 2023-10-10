@@ -32,6 +32,7 @@ class Canvas extends Forme
         return $this->formes;
     }
 
+    //    public function add(Rectangle|Cercle|Ligne $forme): void
     public function add(Forme $forme): void
     {
         $this->formes[] = $forme;

@@ -2,4 +2,6 @@
 
 namespace Opmvpc\Formes;
 
-class Ligne extends Forme {}
+class Ligne extends Forme {
+    
+}

@@ -16,7 +16,7 @@ use SVG\SVG;
 //Ceci est un package fait par qqun d'autre pour aider
 class SVGRenderer implements Renderer
 {
-    private Canvas $canvas;
+    protected Canvas $canvas;
     //-2
     private Cercle $Cercle;
     private Rectangle $Rectangle;
@@ -25,7 +25,17 @@ class SVGRenderer implements Renderer
     {
         $this->canvas = $canvas;
     }
-    public function render(): string
+
+    public function save(string $path): void
+    {
+        $svgContent = $this->render();
+        file_put_contents($path, $svgContent);
+    }
+
+
+
+
+    protected function getImage()
     {
         $image = new SVG($this->canvas->getWidth(), $this->canvas->getHeight());
         $doc = $image->getDocument();
@@ -81,22 +91,15 @@ class SVGRenderer implements Renderer
                 $doc->addChild($polygon);
             }
         }
-        return $image->toXMLString();
+        return $image;
     }
 
-    public function save(string $path): void
+    public function render(): string
     {
-        $svgContent = $this->render();
-        file_put_contents($path, $svgContent);
+        $img = $this->getImage();
+        return $img->toXMLString();
     }
 } 
-
-
-
-
-
-
-
 
 
 

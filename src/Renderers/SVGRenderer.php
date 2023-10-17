@@ -83,11 +83,23 @@ class SVGRenderer implements Renderer
         }
         return $image->toXMLString();
     }
+
     public function save(string $path): void
     {
-        file_put_contents($path, $this->render());
+        $svgContent = $this->render();
+        file_put_contents($path, $svgContent);
     }
 } 
+
+
+
+
+
+
+
+
+
+
 
 // elseif ($formeClass === Cercle::class) {
 

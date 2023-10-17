@@ -9,12 +9,14 @@ class Canvas extends Forme
     private array $formes;
 
     // array $formes = []  ----->  si on ne déclare pas array $formes ---> problem il sait pas fonctionner
-    public function __construct(float $width, float $height, array $formes = [], string $color = "#FFFFFF")
+    //array $formes = [], mais il faut pas initialiser ce array dans le canva, il est censé être vide 
+    public function __construct(float $width, float $height, string $color = "#FFFFFF")
     {
-        parent::__construct($color); // Appel du constructeur de la classe parente
+
         $this->width = $width;
         $this->height = $height;
         $this->formes = [];
+        parent::__construct($color); // Appel du constructeur de la classe parente
     }
 
     public function getWidth(): float
